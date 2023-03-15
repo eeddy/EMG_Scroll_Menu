@@ -8,7 +8,7 @@ using TMPro;
 
 public class MenuControl : MonoBehaviour
 {
-    private int numButtons = 100;
+    private int numButtons = 20;
 
     public GameObject button, grid, scroll;
     private GridObjectCollection gc;
@@ -25,6 +25,8 @@ public class MenuControl : MonoBehaviour
         gc = FindObjectOfType<GridObjectCollection>();
         so = FindObjectOfType<ScrollingObjectCollection>();
 
+        scroll.SetActive(false);
+
         // Add the number of buttons desired
         for(int i=0; i<numButtons; i++) {
             var nButton = Instantiate(button, grid.transform);
@@ -32,13 +34,12 @@ public class MenuControl : MonoBehaviour
             nButton.name = "Button_" + (i+1);
             nButton.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<TextMeshPro>().text = "Button " + (i+1);
         }
+
+        scroll.SetActive(true);
     }
 
     void Start() {
-        scroll.SetActive(false);
-        emgReader = FindObjectOfType<EMGReader>();
-        emgReader.StartReadingData();
-        debounceTime = Time.time;
+        // Do nothing for now - but leave this.
     }
 
     void UpdateMenu()
@@ -50,25 +51,9 @@ public class MenuControl : MonoBehaviour
     void FixedUpdate()
     {
         UpdateMenu();
-        control = emgReader.ReadControlFromArmband();
-        speed = Mathf.Pow(emgReader.ReadSpeedFromArmband(), 3f);
-        if (speed < 0) {
-            speed = 0.01f;
-        }
-        if (control == "0" && Time.time - debounceTime > 1f) {
-            // Hand Close - Open/Close Menu
-            if(scroll.activeSelf) {
-                CloseMenu();
-                debounceTime = Time.time;
-            } else {
-                OpenMenu();
-                debounceTime = Time.time;
-            }
-        } else if (control == "3") {
-            // Extension - Up Scroll
+        if (Input.GetKeyUp(KeyCode.DownArrow)) {
             DownScroll(speed);
-        } else if (control == "4") {
-            // Flexion - Up Scroll
+        } else if (Input.GetKeyUp(KeyCode.UpArrow))  {
             UpScroll(speed);
         } else if(control == "1") {
             
@@ -77,21 +62,11 @@ public class MenuControl : MonoBehaviour
 
     void DownScroll(float speed) {
         so.MoveByTiers(Mathf.RoundToInt(10 * speed));
-        gc.UpdateCollection();
+        UpdateMenu();
     }
 
     void UpScroll(float speed) {
         so.MoveByTiers(Mathf.RoundToInt(-10 * speed));
-        gc.UpdateCollection();
-    }
-
-    void OpenMenu() {
-        Debug.Log("Opening Menu");
-        scroll.SetActive(true);
-    }
-
-    void CloseMenu() {
-        Debug.Log("Closing Menu");
-        scroll.SetActive(false);
+        UpdateMenu();
     }
 }
