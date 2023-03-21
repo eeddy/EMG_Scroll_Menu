@@ -1,2 +1,0 @@
-[08:15:45][DEBUG]	Initialization of Logging File Completed
-[08:15:45][DEBUG]	Here!

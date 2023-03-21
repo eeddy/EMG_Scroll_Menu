@@ -10,7 +10,7 @@ using static Globals;
 
 public class MenuControl : MonoBehaviour
 {
-    private int numButtons = 20;
+    private int numButtons = 10;
 
     public GameObject button, grid, scroll;
     private GridObjectCollection gc;
@@ -21,12 +21,16 @@ public class MenuControl : MonoBehaviour
     private float speed;
     private int count = 0;
     private bool toggleState = true;
+    private int selectedButton;
+    private List<GameObject> buttons;
 
 
     void Awake()
     {
         gc = FindObjectOfType<GridObjectCollection>();
         so = FindObjectOfType<ScrollingObjectCollection>();
+
+        buttons = new List<GameObject>();
 
         scroll.SetActive(false);
 
@@ -36,60 +40,85 @@ public class MenuControl : MonoBehaviour
             nButton.SetActive(true);
             nButton.name = "Button_" + (i+1);
             nButton.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<TextMeshPro>().text = "Button " + (i+1);
+            nButton.transform.GetChild(2).gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().enabled = false;
+            buttons.Add(nButton);
         }
+
+        // Add Selection
+        // var rTriangle = Instantiate(TriangleGraphic, so.transform);
+        // rTriangle.name = "Triangle_Right";
 
         scroll.SetActive(true);
     }
 
     void Start() {
         // Do nothing for now - but leave this.
-        Globals.logger.writeDebug("Here!");
+        Globals.logger.writeDebug("Menu Control Started!");
+        selectedButton = 3;
+        // selectedMaterial = new Material(Shader.Find("Specular"));
+        // Image1 =
     }
 
     void Update()
     {
-      if (Input.inputString != "") {
+      if (Input.GetKeyDown(KeyCode.O) || Input.GetKeyDown(KeyCode.L)) {
         Globals.logger.writeDebug("Key Pressed: " + Input.inputString);
+        FixedUpdate();
       }
-      if (Input.GetKeyDown("space"))
-      {
-          print("space key was pressed");
-      }
+
+      // FixedUpdate();
     }
 
     void UpdateMenu()
     {
         gc.UpdateCollection();
         so.UpdateContent();
-        if (Input.GetKeyUp(KeyCode.T)) {
-          Globals.logger.writeDebug("Hit " + "T");
-          toggleState = true;
-        }
-
     }
 
     void FixedUpdate()
     {
         UpdateMenu();
+        int speed = 1;
 
-        if (Input.GetKeyUp(KeyCode.O)) {
-          Globals.logger.writeDebug("Hit " + "O");
-            DownScroll(speed);
-        } else if (Input.GetKeyUp(KeyCode.L))  {
-          Globals.logger.writeDebug("Hit " + "L");
+        if (Input.GetKeyDown(KeyCode.O)) {
             UpScroll(speed);
-        } else if(control == "1") {
-
+        } else if (Input.GetKeyDown(KeyCode.L))  {
+            DownScroll(speed);
         }
     }
 
-    void DownScroll(float speed) {
-        so.MoveByTiers(Mathf.RoundToInt(10 * speed));
+    void DownScroll(int speed) {
+        Globals.logger.writeDebug("DownScroll");
+        buttons[selectedButton - 1].transform.GetChild(2).gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().enabled = false;
+
+        if (selectedButton < buttons.Count) {
+          selectedButton += 1;
+        }
+        if (selectedButton > 3) {
+          so.MoveByTiers(Mathf.RoundToInt(1 * speed));
+        }
+
+        buttons[selectedButton - 1].transform.GetChild(2).gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().enabled = true;
+
+        Globals.logger.writeDebug("New Selected button: " + selectedButton);
         UpdateMenu();
     }
 
-    void UpScroll(float speed) {
-        so.MoveByTiers(Mathf.RoundToInt(-10 * speed));
+    void UpScroll(int speed) {
+        Globals.logger.writeDebug("UpScroll");
+        buttons[selectedButton - 1].transform.GetChild(2).gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().enabled = false;
+
+        if (selectedButton > 1) {
+          selectedButton -= 1;
+        }
+        if (selectedButton < buttons.Count - 2) {
+          so.MoveByTiers(Mathf.RoundToInt(-1 * speed));
+        }
+
+        buttons[selectedButton - 1].transform.GetChild(2).gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().enabled = true;
+
+
+        Globals.logger.writeDebug("New Selected button: " + selectedButton);
         UpdateMenu();
     }
 }

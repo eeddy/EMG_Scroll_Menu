@@ -1,0 +1,5 @@
+[10:52:37][DEBUG]	Initialization of Logging File Completed
+[10:52:37][DEBUG]	Menu Control Started!
+[10:52:42][DEBUG]	DownScroll
+[10:52:42][DEBUG]	Key Pressed: l
+[10:52:42][DEBUG]	DownScroll

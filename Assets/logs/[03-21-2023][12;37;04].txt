@@ -1,0 +1,170 @@
+[12:37:04][DEBUG]	Initialization of Logging File Completed
+[12:37:04][DEBUG]	Menu Control Started!
+[12:37:06][DEBUG]	Key Pressed: l
+[12:37:06][DEBUG]	DownScroll
+[12:37:07][DEBUG]	Key Pressed: l
+[12:37:07][DEBUG]	DownScroll
+[12:37:07][DEBUG]	Key Pressed: l
+[12:37:07][DEBUG]	DownScroll
+[12:37:07][DEBUG]	Key Pressed: l
+[12:37:07][DEBUG]	DownScroll
+[12:37:08][DEBUG]	DownScroll
+[12:37:08][DEBUG]	Key Pressed: l
+[12:37:08][DEBUG]	DownScroll
+[12:37:08][DEBUG]	Key Pressed: l
+[12:37:08][DEBUG]	DownScroll
+[12:37:09][DEBUG]	Key Pressed: o
+[12:37:09][DEBUG]	UpScroll
+[12:37:09][DEBUG]	Key Pressed: o
+[12:37:09][DEBUG]	UpScroll
+[12:37:09][DEBUG]	Key Pressed: o
+[12:37:09][DEBUG]	UpScroll
+[12:37:10][DEBUG]	Key Pressed: o
+[12:37:10][DEBUG]	UpScroll
+[12:37:10][DEBUG]	Key Pressed: o
+[12:37:10][DEBUG]	UpScroll
+[12:37:10][DEBUG]	Key Pressed: o
+[12:37:10][DEBUG]	UpScroll
+[12:37:10][DEBUG]	Key Pressed: o
+[12:37:10][DEBUG]	UpScroll
+[12:37:11][DEBUG]	UpScroll
+[12:37:11][DEBUG]	Key Pressed: o
+[12:37:11][DEBUG]	UpScroll
+[12:37:11][DEBUG]	DownScroll
+[12:37:11][DEBUG]	Key Pressed: l
+[12:37:11][DEBUG]	DownScroll
+[12:37:12][DEBUG]	Key Pressed: l
+[12:37:12][DEBUG]	DownScroll
+[12:37:12][DEBUG]	Key Pressed: l
+[12:37:12][DEBUG]	DownScroll
+[12:37:12][DEBUG]	Key Pressed: l
+[12:37:12][DEBUG]	DownScroll
+[12:37:13][DEBUG]	Key Pressed: l
+[12:37:13][DEBUG]	DownScroll
+[12:37:13][DEBUG]	Key Pressed: l
+[12:37:13][DEBUG]	DownScroll
+[12:37:13][DEBUG]	Key Pressed: o
+[12:37:13][DEBUG]	UpScroll
+[12:37:13][DEBUG]	Key Pressed: o
+[12:37:13][DEBUG]	UpScroll
+[12:37:14][DEBUG]	Key Pressed: o
+[12:37:14][DEBUG]	UpScroll
+[12:37:14][DEBUG]	Key Pressed: o
+[12:37:14][DEBUG]	UpScroll
+[12:37:15][DEBUG]	Key Pressed: o
+[12:37:15][DEBUG]	UpScroll
+[12:37:15][DEBUG]	Key Pressed: o
+[12:37:15][DEBUG]	UpScroll
+[12:37:16][DEBUG]	UpScroll
+[12:37:16][DEBUG]	Key Pressed: o
+[12:37:16][DEBUG]	UpScroll
+[12:37:18][DEBUG]	Key Pressed: l
+[12:37:18][DEBUG]	DownScroll
+[12:37:27][DEBUG]	Key Pressed: l
+[12:37:27][DEBUG]	DownScroll
+[12:37:27][DEBUG]	DownScroll
+[12:37:27][DEBUG]	Key Pressed: l
+[12:37:27][DEBUG]	DownScroll
+[12:37:27][DEBUG]	UpScroll
+[12:37:27][DEBUG]	Key Pressed: o
+[12:37:27][DEBUG]	UpScroll
+[12:37:28][DEBUG]	Key Pressed: o
+[12:37:28][DEBUG]	UpScroll
+[12:37:28][DEBUG]	Key Pressed: o
+[12:37:28][DEBUG]	UpScroll
+[12:37:28][DEBUG]	Key Pressed: o
+[12:37:28][DEBUG]	UpScroll
+[12:37:29][DEBUG]	Key Pressed: l
+[12:37:29][DEBUG]	DownScroll
+[12:37:29][DEBUG]	Key Pressed: l
+[12:37:29][DEBUG]	DownScroll
+[12:37:29][DEBUG]	Key Pressed: l
+[12:37:29][DEBUG]	DownScroll
+[12:37:29][DEBUG]	Key Pressed: l
+[12:37:29][DEBUG]	DownScroll
+[12:37:29][DEBUG]	Key Pressed: l
+[12:37:29][DEBUG]	DownScroll
+[12:37:29][DEBUG]	Key Pressed: l
+[12:37:30][DEBUG]	DownScroll
+[12:37:30][DEBUG]	Key Pressed: l
+[12:37:30][DEBUG]	DownScroll
+[12:37:30][DEBUG]	DownScroll
+[12:37:30][DEBUG]	Key Pressed: l
+[12:37:30][DEBUG]	DownScroll
+[12:37:30][DEBUG]	Key Pressed: l
+[12:37:30][DEBUG]	DownScroll
+[12:37:31][DEBUG]	Key Pressed: o
+[12:37:31][DEBUG]	UpScroll
+[12:37:31][DEBUG]	DownScroll
+[12:37:31][DEBUG]	Key Pressed: l
+[12:37:31][DEBUG]	DownScroll
+[12:37:32][DEBUG]	Key Pressed: l
+[12:37:32][DEBUG]	DownScroll
+[12:37:32][DEBUG]	Key Pressed: l
+[12:37:32][DEBUG]	DownScroll
+[12:37:46][DEBUG]	Key Pressed: o
+[12:37:46][DEBUG]	UpScroll
+[12:37:47][DEBUG]	Key Pressed: o
+[12:37:47][DEBUG]	UpScroll
+[12:37:47][DEBUG]	Key Pressed: o
+[12:37:47][DEBUG]	UpScroll
+[12:37:47][DEBUG]	Key Pressed: o
+[12:37:47][DEBUG]	UpScroll
+[12:37:47][DEBUG]	UpScroll
+[12:37:47][DEBUG]	Key Pressed: o
+[12:37:47][DEBUG]	UpScroll
+[12:37:47][DEBUG]	Key Pressed: o
+[12:37:47][DEBUG]	UpScroll
+[12:37:47][DEBUG]	Key Pressed: o
+[12:37:47][DEBUG]	UpScroll
+[12:37:48][DEBUG]	Key Pressed: o
+[12:37:48][DEBUG]	UpScroll
+[12:37:54][DEBUG]	Key Pressed: l
+[12:37:54][DEBUG]	DownScroll
+[12:37:55][DEBUG]	DownScroll
+[12:37:55][DEBUG]	Key Pressed: l
+[12:37:55][DEBUG]	DownScroll
+[12:37:55][DEBUG]	Key Pressed: o
+[12:37:55][DEBUG]	UpScroll
+[12:37:56][DEBUG]	Key Pressed: o
+[12:37:56][DEBUG]	UpScroll
+[12:37:56][DEBUG]	Key Pressed: o
+[12:37:56][DEBUG]	UpScroll
+[12:37:56][DEBUG]	Key Pressed: o
+[12:37:56][DEBUG]	UpScroll
+[12:37:57][DEBUG]	Key Pressed: o
+[12:37:57][DEBUG]	UpScroll
+[12:37:57][DEBUG]	Key Pressed: l
+[12:37:57][DEBUG]	DownScroll
+[12:37:57][DEBUG]	DownScroll
+[12:37:57][DEBUG]	Key Pressed: l
+[12:37:57][DEBUG]	DownScroll
+[12:37:57][DEBUG]	Key Pressed: l
+[12:37:57][DEBUG]	DownScroll
+[12:37:57][DEBUG]	Key Pressed: l
+[12:37:57][DEBUG]	DownScroll
+[12:37:57][DEBUG]	Key Pressed: l
+[12:37:57][DEBUG]	DownScroll
+[12:37:58][DEBUG]	Key Pressed: l
+[12:37:58][DEBUG]	DownScroll
+[12:37:58][DEBUG]	DownScroll
+[12:37:58][DEBUG]	Key Pressed: l
+[12:37:58][DEBUG]	DownScroll
+[12:37:58][DEBUG]	Key Pressed: o
+[12:37:58][DEBUG]	UpScroll
+[12:37:58][DEBUG]	Key Pressed: o
+[12:37:58][DEBUG]	UpScroll
+[12:37:59][DEBUG]	Key Pressed: o
+[12:37:59][DEBUG]	UpScroll
+[12:37:59][DEBUG]	Key Pressed: o
+[12:37:59][DEBUG]	UpScroll
+[12:37:59][DEBUG]	Key Pressed: o
+[12:37:59][DEBUG]	UpScroll
+[12:37:59][DEBUG]	Key Pressed: o
+[12:37:59][DEBUG]	UpScroll
+[12:38:00][DEBUG]	Key Pressed: o
+[12:38:00][DEBUG]	UpScroll
+[12:38:01][DEBUG]	Key Pressed: o
+[12:38:01][DEBUG]	UpScroll
+[12:38:02][DEBUG]	Key Pressed: o
+[12:38:02][DEBUG]	UpScroll
