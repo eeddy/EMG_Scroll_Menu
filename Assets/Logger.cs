@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,6 +31,7 @@ public class Logger
 
   public void writeDebug(string txt) {
     var todayDate = DateTime.Now;
+    Debug.Log(todayDate.ToString("[HH:mm:ss]") + "[DEBUG]\t" + txt);
     // Add some text to file
     using (StreamWriter fs = File.AppendText(fileName))
     {
@@ -38,6 +40,7 @@ public class Logger
   }
   public void writeError(string txt) {
     var todayDate = DateTime.Now;
+    Debug.Log(todayDate.ToString("[HH:mm:ss]") + "[ERROR]\t" + txt);
     // Add some text to file
     using (StreamWriter fs = File.AppendText(fileName))
     {

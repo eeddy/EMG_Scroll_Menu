@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,6 +46,17 @@ public class MenuControl : MonoBehaviour
         Globals.logger.writeDebug("Here!");
     }
 
+    void Update()
+    {
+      if (Input.inputString != "") {
+        Globals.logger.writeDebug("Key Pressed: " + Input.inputString);
+      }
+      if (Input.GetKeyDown("space"))
+      {
+          print("space key was pressed");
+      }
+    }
+
     void UpdateMenu()
     {
         gc.UpdateCollection();
@@ -59,7 +71,6 @@ public class MenuControl : MonoBehaviour
     void FixedUpdate()
     {
         UpdateMenu();
-
 
         if (Input.GetKeyUp(KeyCode.O)) {
           Globals.logger.writeDebug("Hit " + "O");
