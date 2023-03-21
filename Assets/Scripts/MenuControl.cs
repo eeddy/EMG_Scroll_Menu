@@ -5,6 +5,7 @@ using Microsoft.MixedReality.Toolkit.UI;
 using Microsoft.MixedReality.Toolkit.Utilities;
 using UnityEngine.UI;
 using TMPro;
+using static Globals;
 
 public class MenuControl : MonoBehaviour
 {
@@ -18,7 +19,8 @@ public class MenuControl : MonoBehaviour
     private double debounceTime;
     private float speed;
     private int count = 0;
-    
+    private bool toggleState = true;
+
 
     void Awake()
     {
@@ -40,23 +42,33 @@ public class MenuControl : MonoBehaviour
 
     void Start() {
         // Do nothing for now - but leave this.
+        Globals.logger.writeDebug("Here!");
     }
 
     void UpdateMenu()
     {
         gc.UpdateCollection();
         so.UpdateContent();
+        if (Input.GetKeyUp(KeyCode.T)) {
+          Globals.logger.writeDebug("Hit " + "T");
+          toggleState = true;
+        }
+
     }
 
     void FixedUpdate()
     {
         UpdateMenu();
-        if (Input.GetKeyUp(KeyCode.DownArrow)) {
+
+
+        if (Input.GetKeyUp(KeyCode.O)) {
+          Globals.logger.writeDebug("Hit " + "O");
             DownScroll(speed);
-        } else if (Input.GetKeyUp(KeyCode.UpArrow))  {
+        } else if (Input.GetKeyUp(KeyCode.L))  {
+          Globals.logger.writeDebug("Hit " + "L");
             UpScroll(speed);
         } else if(control == "1") {
-            
+
         }
     }
 
