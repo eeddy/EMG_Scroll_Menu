@@ -1,0 +1,7 @@
+[14:53:26][DEBUG]	Initialization of Logging File Completed
+[14:53:26][DEBUG]	Menu Control Started!
+[14:53:32][DEBUG]	Key Pressed: l
+[14:53:32][DEBUG]	Key Pressed: l
+[14:53:32][DEBUG]	Key Pressed: l
+[14:53:33][DEBUG]	Key Pressed: o
+[14:53:33][DEBUG]	Key Pressed: o

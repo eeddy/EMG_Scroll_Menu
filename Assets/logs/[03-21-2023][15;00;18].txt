@@ -1,0 +1,2 @@
+[15:00:18][DEBUG]	Initialization of Logging File Completed
+[15:00:18][DEBUG]	Menu Control Started!

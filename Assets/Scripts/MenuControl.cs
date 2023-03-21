@@ -7,12 +7,13 @@ using Microsoft.MixedReality.Toolkit.Utilities;
 using UnityEngine.UI;
 using TMPro;
 using static Globals;
+using UnityEngine;
 
 public class MenuControl : MonoBehaviour
 {
     private int numButtons = 10;
 
-    public GameObject button, grid, scroll;
+    public GameObject grid, scroll, button;
     private GridObjectCollection gc;
     private ScrollingObjectCollection so;
     private EMGReader emgReader;
@@ -34,39 +35,32 @@ public class MenuControl : MonoBehaviour
 
         scroll.SetActive(false);
 
-        // Add the number of buttons desired
         for(int i=0; i<numButtons; i++) {
             var nButton = Instantiate(button, grid.transform);
             nButton.SetActive(true);
             nButton.name = "Button_" + (i+1);
             nButton.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<TextMeshPro>().text = "Button " + (i+1);
-            nButton.transform.GetChild(2).gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().enabled = false;
+            nButton.transform.GetChild(2).gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+            nButton.transform.GetChild(2).gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+
             buttons.Add(nButton);
         }
-
-        // Add Selection
-        // var rTriangle = Instantiate(TriangleGraphic, so.transform);
-        // rTriangle.name = "Triangle_Right";
 
         scroll.SetActive(true);
     }
 
     void Start() {
-        // Do nothing for now - but leave this.
         Globals.logger.writeDebug("Menu Control Started!");
         selectedButton = 3;
-        // selectedMaterial = new Material(Shader.Find("Specular"));
-        // Image1 =
+
     }
 
     void Update()
     {
       if (Input.GetKeyDown(KeyCode.O) || Input.GetKeyDown(KeyCode.L)) {
         Globals.logger.writeDebug("Key Pressed: " + Input.inputString);
-        FixedUpdate();
       }
-
-      // FixedUpdate();
+      FixedUpdate();
     }
 
     void UpdateMenu()
@@ -89,7 +83,8 @@ public class MenuControl : MonoBehaviour
 
     void DownScroll(int speed) {
         Globals.logger.writeDebug("DownScroll");
-        buttons[selectedButton - 1].transform.GetChild(2).gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().enabled = false;
+
+        unselect(buttons[selectedButton - 1]);
 
         if (selectedButton < buttons.Count) {
           selectedButton += 1;
@@ -98,7 +93,7 @@ public class MenuControl : MonoBehaviour
           so.MoveByTiers(Mathf.RoundToInt(1 * speed));
         }
 
-        buttons[selectedButton - 1].transform.GetChild(2).gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().enabled = true;
+        select(buttons[selectedButton - 1]);
 
         Globals.logger.writeDebug("New Selected button: " + selectedButton);
         UpdateMenu();
@@ -106,7 +101,8 @@ public class MenuControl : MonoBehaviour
 
     void UpScroll(int speed) {
         Globals.logger.writeDebug("UpScroll");
-        buttons[selectedButton - 1].transform.GetChild(2).gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().enabled = false;
+
+        unselect(buttons[selectedButton - 1]);
 
         if (selectedButton > 1) {
           selectedButton -= 1;
@@ -115,10 +111,31 @@ public class MenuControl : MonoBehaviour
           so.MoveByTiers(Mathf.RoundToInt(-1 * speed));
         }
 
-        buttons[selectedButton - 1].transform.GetChild(2).gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().enabled = true;
+        select(buttons[selectedButton - 1]);
 
 
         Globals.logger.writeDebug("New Selected button: " + selectedButton);
         UpdateMenu();
+    }
+    void select(GameObject btn) {
+      // Add Arrows
+      btn.transform.GetChild(2).gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = true;
+      btn.transform.GetChild(2).gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+
+      // Change Text
+      btn.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<TextMeshPro>().fontStyle = (FontStyles) FontStyle.Bold;
+      btn.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<RectTransform>().localPosition = new Vector3((float) -0.0025, 0, 0);
+    }
+    void unselect(GameObject btn) {
+      // Remove Arrows
+      btn.transform.GetChild(2).gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+      btn.transform.GetChild(2).gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+
+      // Change Text
+      btn.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<TextMeshPro>().fontStyle = (FontStyles) FontStyle.Normal;
+      btn.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<RectTransform>().localPosition = new Vector3(0, (float) -0.00199, 0);
+    }
+    void ButtonClicked(int buttonNumber){
+      Globals.logger.writeDebug("Button " + buttonNumber + " got clicked!");
     }
 }

@@ -1,0 +1,202 @@
+[14:26:53][DEBUG]	Initialization of Logging File Completed
+[14:26:53][DEBUG]	Menu Control Started!
+[14:26:55][DEBUG]	DownScroll
+[14:26:55][DEBUG]	New Selected button: 4
+[14:26:55][DEBUG]	Key Pressed: l
+[14:26:55][DEBUG]	DownScroll
+[14:26:55][DEBUG]	New Selected button: 5
+[14:26:55][DEBUG]	Key Pressed: l
+[14:26:55][DEBUG]	DownScroll
+[14:26:55][DEBUG]	New Selected button: 6
+[14:26:56][DEBUG]	Key Pressed: o
+[14:26:56][DEBUG]	UpScroll
+[14:26:56][DEBUG]	New Selected button: 5
+[14:26:56][DEBUG]	Key Pressed: o
+[14:26:56][DEBUG]	UpScroll
+[14:26:56][DEBUG]	New Selected button: 4
+[14:26:56][DEBUG]	Key Pressed: o
+[14:26:56][DEBUG]	UpScroll
+[14:26:56][DEBUG]	New Selected button: 3
+[14:26:56][DEBUG]	Key Pressed: o
+[14:26:56][DEBUG]	UpScroll
+[14:26:56][DEBUG]	New Selected button: 2
+[14:26:57][DEBUG]	Key Pressed: l
+[14:26:57][DEBUG]	DownScroll
+[14:26:57][DEBUG]	New Selected button: 3
+[14:26:57][DEBUG]	Key Pressed: l
+[14:26:57][DEBUG]	DownScroll
+[14:26:57][DEBUG]	New Selected button: 4
+[14:26:57][DEBUG]	Key Pressed: l
+[14:26:57][DEBUG]	DownScroll
+[14:26:57][DEBUG]	New Selected button: 5
+[14:26:57][DEBUG]	DownScroll
+[14:26:57][DEBUG]	New Selected button: 6
+[14:26:57][DEBUG]	Key Pressed: l
+[14:26:57][DEBUG]	DownScroll
+[14:26:57][DEBUG]	New Selected button: 7
+[14:26:58][DEBUG]	Key Pressed: l
+[14:26:58][DEBUG]	DownScroll
+[14:26:58][DEBUG]	New Selected button: 8
+[14:26:58][DEBUG]	Key Pressed: l
+[14:26:58][DEBUG]	DownScroll
+[14:26:58][DEBUG]	New Selected button: 9
+[14:26:58][DEBUG]	Key Pressed: l
+[14:26:58][DEBUG]	DownScroll
+[14:26:58][DEBUG]	New Selected button: 10
+[14:26:58][DEBUG]	Key Pressed: o
+[14:26:58][DEBUG]	UpScroll
+[14:26:58][DEBUG]	New Selected button: 9
+[14:26:58][DEBUG]	Key Pressed: o
+[14:26:58][DEBUG]	UpScroll
+[14:26:58][DEBUG]	New Selected button: 8
+[14:26:59][DEBUG]	Key Pressed: o
+[14:26:59][DEBUG]	UpScroll
+[14:26:59][DEBUG]	New Selected button: 7
+[14:26:59][DEBUG]	Key Pressed: o
+[14:26:59][DEBUG]	UpScroll
+[14:26:59][DEBUG]	New Selected button: 6
+[14:26:59][DEBUG]	Key Pressed: o
+[14:26:59][DEBUG]	UpScroll
+[14:26:59][DEBUG]	New Selected button: 5
+[14:26:59][DEBUG]	UpScroll
+[14:26:59][DEBUG]	New Selected button: 4
+[14:26:59][DEBUG]	Key Pressed: o
+[14:26:59][DEBUG]	UpScroll
+[14:26:59][DEBUG]	New Selected button: 3
+[14:26:59][DEBUG]	Key Pressed: o
+[14:26:59][DEBUG]	UpScroll
+[14:26:59][DEBUG]	New Selected button: 2
+[14:27:00][DEBUG]	Key Pressed: o
+[14:27:00][DEBUG]	UpScroll
+[14:27:00][DEBUG]	New Selected button: 1
+[14:27:00][DEBUG]	Key Pressed: l
+[14:27:00][DEBUG]	DownScroll
+[14:27:00][DEBUG]	New Selected button: 2
+[14:27:00][DEBUG]	Key Pressed: l
+[14:27:00][DEBUG]	DownScroll
+[14:27:00][DEBUG]	New Selected button: 3
+[14:27:00][DEBUG]	Key Pressed: l
+[14:27:00][DEBUG]	DownScroll
+[14:27:00][DEBUG]	New Selected button: 4
+[14:27:00][DEBUG]	Key Pressed: l
+[14:27:00][DEBUG]	DownScroll
+[14:27:00][DEBUG]	New Selected button: 5
+[14:27:01][DEBUG]	Key Pressed: l
+[14:27:01][DEBUG]	DownScroll
+[14:27:01][DEBUG]	New Selected button: 6
+[14:27:01][DEBUG]	Key Pressed: l
+[14:27:01][DEBUG]	DownScroll
+[14:27:01][DEBUG]	New Selected button: 7
+[14:27:01][DEBUG]	Key Pressed: l
+[14:27:01][DEBUG]	DownScroll
+[14:27:01][DEBUG]	New Selected button: 8
+[14:27:01][DEBUG]	DownScroll
+[14:27:01][DEBUG]	New Selected button: 9
+[14:27:01][DEBUG]	Key Pressed: l
+[14:27:01][DEBUG]	DownScroll
+[14:27:01][DEBUG]	New Selected button: 10
+[14:27:01][DEBUG]	Key Pressed: l
+[14:27:01][DEBUG]	DownScroll
+[14:27:01][DEBUG]	New Selected button: 10
+[14:27:02][DEBUG]	Key Pressed: o
+[14:27:02][DEBUG]	UpScroll
+[14:27:02][DEBUG]	New Selected button: 9
+[14:27:02][DEBUG]	Key Pressed: o
+[14:27:02][DEBUG]	UpScroll
+[14:27:02][DEBUG]	New Selected button: 8
+[14:27:02][DEBUG]	Key Pressed: o
+[14:27:02][DEBUG]	UpScroll
+[14:27:02][DEBUG]	New Selected button: 7
+[14:27:02][DEBUG]	Key Pressed: o
+[14:27:02][DEBUG]	UpScroll
+[14:27:02][DEBUG]	New Selected button: 6
+[14:27:02][DEBUG]	Key Pressed: o
+[14:27:02][DEBUG]	UpScroll
+[14:27:02][DEBUG]	New Selected button: 5
+[14:27:03][DEBUG]	Key Pressed: o
+[14:27:03][DEBUG]	UpScroll
+[14:27:03][DEBUG]	New Selected button: 4
+[14:27:03][DEBUG]	Key Pressed: o
+[14:27:03][DEBUG]	UpScroll
+[14:27:03][DEBUG]	New Selected button: 3
+[14:27:03][DEBUG]	Key Pressed: o
+[14:27:03][DEBUG]	UpScroll
+[14:27:03][DEBUG]	New Selected button: 2
+[14:27:03][DEBUG]	Key Pressed: o
+[14:27:03][DEBUG]	UpScroll
+[14:27:03][DEBUG]	New Selected button: 1
+[14:27:04][DEBUG]	Key Pressed: l
+[14:27:04][DEBUG]	DownScroll
+[14:27:04][DEBUG]	New Selected button: 2
+[14:27:04][DEBUG]	Key Pressed: o
+[14:27:04][DEBUG]	UpScroll
+[14:27:04][DEBUG]	New Selected button: 1
+[14:27:04][DEBUG]	Key Pressed: l
+[14:27:04][DEBUG]	DownScroll
+[14:27:04][DEBUG]	New Selected button: 2
+[14:27:04][DEBUG]	Key Pressed: l
+[14:27:04][DEBUG]	DownScroll
+[14:27:04][DEBUG]	New Selected button: 3
+[14:27:05][DEBUG]	UpScroll
+[14:27:05][DEBUG]	New Selected button: 2
+[14:27:05][DEBUG]	Key Pressed: o
+[14:27:05][DEBUG]	UpScroll
+[14:27:05][DEBUG]	New Selected button: 1
+[14:27:05][DEBUG]	UpScroll
+[14:27:05][DEBUG]	New Selected button: 1
+[14:27:05][DEBUG]	Key Pressed: o
+[14:27:05][DEBUG]	UpScroll
+[14:27:05][DEBUG]	New Selected button: 1
+[14:27:05][DEBUG]	Key Pressed: l
+[14:27:05][DEBUG]	DownScroll
+[14:27:05][DEBUG]	New Selected button: 2
+[14:27:05][DEBUG]	Key Pressed: l
+[14:27:05][DEBUG]	DownScroll
+[14:27:05][DEBUG]	New Selected button: 3
+[14:27:05][DEBUG]	Key Pressed: l
+[14:27:05][DEBUG]	DownScroll
+[14:27:05][DEBUG]	New Selected button: 4
+[14:27:06][DEBUG]	Key Pressed: o
+[14:27:06][DEBUG]	UpScroll
+[14:27:06][DEBUG]	New Selected button: 3
+[14:27:06][DEBUG]	UpScroll
+[14:27:06][DEBUG]	New Selected button: 2
+[14:27:06][DEBUG]	Key Pressed: o
+[14:27:06][DEBUG]	UpScroll
+[14:27:06][DEBUG]	New Selected button: 1
+[14:27:06][DEBUG]	UpScroll
+[14:27:06][DEBUG]	New Selected button: 1
+[14:27:06][DEBUG]	Key Pressed: o
+[14:27:06][DEBUG]	UpScroll
+[14:27:06][DEBUG]	New Selected button: 1
+[14:27:06][DEBUG]	Key Pressed: l
+[14:27:06][DEBUG]	DownScroll
+[14:27:06][DEBUG]	New Selected button: 2
+[14:27:07][DEBUG]	Key Pressed: l
+[14:27:07][DEBUG]	DownScroll
+[14:27:07][DEBUG]	New Selected button: 3
+[14:27:07][DEBUG]	Key Pressed: o
+[14:27:07][DEBUG]	UpScroll
+[14:27:07][DEBUG]	New Selected button: 2
+[14:27:07][DEBUG]	UpScroll
+[14:27:07][DEBUG]	New Selected button: 1
+[14:27:07][DEBUG]	Key Pressed: o
+[14:27:07][DEBUG]	UpScroll
+[14:27:07][DEBUG]	New Selected button: 1
+[14:27:07][DEBUG]	DownScroll
+[14:27:07][DEBUG]	New Selected button: 2
+[14:27:07][DEBUG]	Key Pressed: l
+[14:27:07][DEBUG]	DownScroll
+[14:27:07][DEBUG]	New Selected button: 3
+[14:27:08][DEBUG]	Key Pressed: l
+[14:27:08][DEBUG]	DownScroll
+[14:27:08][DEBUG]	New Selected button: 4
+[14:27:08][DEBUG]	Key Pressed: o
+[14:27:08][DEBUG]	UpScroll
+[14:27:08][DEBUG]	New Selected button: 3
+[14:27:08][DEBUG]	Key Pressed: o
+[14:27:08][DEBUG]	UpScroll
+[14:27:08][DEBUG]	New Selected button: 2
+[14:27:08][DEBUG]	Key Pressed: o
+[14:27:08][DEBUG]	UpScroll
+[14:27:08][DEBUG]	New Selected button: 1

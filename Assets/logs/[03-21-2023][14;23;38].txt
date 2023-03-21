@@ -1,0 +1,1 @@
+[14:23:38][DEBUG]	Initialization of Logging File Completed

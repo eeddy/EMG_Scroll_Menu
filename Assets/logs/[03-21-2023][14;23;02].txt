@@ -1,0 +1,174 @@
+[14:23:02][DEBUG]	Initialization of Logging File Completed
+[14:23:02][DEBUG]	Menu Control Started!
+[14:23:08][DEBUG]	DownScroll
+[14:23:08][DEBUG]	New Selected button: 4
+[14:23:08][DEBUG]	Key Pressed: l
+[14:23:09][DEBUG]	DownScroll
+[14:23:09][DEBUG]	New Selected button: 5
+[14:23:09][DEBUG]	Key Pressed: l
+[14:23:09][DEBUG]	DownScroll
+[14:23:09][DEBUG]	New Selected button: 6
+[14:23:10][DEBUG]	Key Pressed: o
+[14:23:10][DEBUG]	UpScroll
+[14:23:10][DEBUG]	New Selected button: 5
+[14:23:11][DEBUG]	Key Pressed: o
+[14:23:11][DEBUG]	UpScroll
+[14:23:11][DEBUG]	New Selected button: 4
+[14:23:11][DEBUG]	Key Pressed: l
+[14:23:11][DEBUG]	DownScroll
+[14:23:11][DEBUG]	New Selected button: 5
+[14:23:11][DEBUG]	Key Pressed: l
+[14:23:11][DEBUG]	DownScroll
+[14:23:11][DEBUG]	New Selected button: 6
+[14:23:12][DEBUG]	Key Pressed: l
+[14:23:12][DEBUG]	DownScroll
+[14:23:12][DEBUG]	New Selected button: 7
+[14:23:12][DEBUG]	Key Pressed: l
+[14:23:12][DEBUG]	DownScroll
+[14:23:12][DEBUG]	New Selected button: 8
+[14:23:12][DEBUG]	Key Pressed: l
+[14:23:12][DEBUG]	DownScroll
+[14:23:12][DEBUG]	New Selected button: 9
+[14:23:13][DEBUG]	Key Pressed: o
+[14:23:13][DEBUG]	UpScroll
+[14:23:13][DEBUG]	New Selected button: 8
+[14:23:13][DEBUG]	Key Pressed: o
+[14:23:13][DEBUG]	UpScroll
+[14:23:13][DEBUG]	New Selected button: 7
+[14:23:14][DEBUG]	Key Pressed: o
+[14:23:14][DEBUG]	UpScroll
+[14:23:14][DEBUG]	New Selected button: 6
+[14:23:14][DEBUG]	Key Pressed: o
+[14:23:14][DEBUG]	UpScroll
+[14:23:14][DEBUG]	New Selected button: 5
+[14:23:14][DEBUG]	Key Pressed: o
+[14:23:14][DEBUG]	UpScroll
+[14:23:14][DEBUG]	New Selected button: 4
+[14:23:14][DEBUG]	Key Pressed: o
+[14:23:14][DEBUG]	UpScroll
+[14:23:14][DEBUG]	New Selected button: 3
+[14:23:14][DEBUG]	Key Pressed: o
+[14:23:14][DEBUG]	UpScroll
+[14:23:14][DEBUG]	New Selected button: 2
+[14:23:15][DEBUG]	Key Pressed: o
+[14:23:15][DEBUG]	UpScroll
+[14:23:15][DEBUG]	New Selected button: 1
+[14:23:15][DEBUG]	DownScroll
+[14:23:15][DEBUG]	New Selected button: 2
+[14:23:15][DEBUG]	Key Pressed: l
+[14:23:15][DEBUG]	DownScroll
+[14:23:15][DEBUG]	New Selected button: 3
+[14:23:15][DEBUG]	Key Pressed: l
+[14:23:15][DEBUG]	DownScroll
+[14:23:15][DEBUG]	New Selected button: 4
+[14:23:16][DEBUG]	Key Pressed: l
+[14:23:16][DEBUG]	DownScroll
+[14:23:16][DEBUG]	New Selected button: 5
+[14:23:16][DEBUG]	Key Pressed: l
+[14:23:16][DEBUG]	DownScroll
+[14:23:16][DEBUG]	New Selected button: 6
+[14:23:16][DEBUG]	Key Pressed: l
+[14:23:16][DEBUG]	DownScroll
+[14:23:16][DEBUG]	New Selected button: 7
+[14:23:16][DEBUG]	Key Pressed: l
+[14:23:16][DEBUG]	DownScroll
+[14:23:16][DEBUG]	New Selected button: 8
+[14:23:17][DEBUG]	Key Pressed: l
+[14:23:17][DEBUG]	DownScroll
+[14:23:17][DEBUG]	New Selected button: 9
+[14:23:17][DEBUG]	Key Pressed: l
+[14:23:17][DEBUG]	DownScroll
+[14:23:17][DEBUG]	New Selected button: 10
+[14:23:17][DEBUG]	Key Pressed: o
+[14:23:17][DEBUG]	UpScroll
+[14:23:17][DEBUG]	New Selected button: 9
+[14:23:17][DEBUG]	Key Pressed: o
+[14:23:17][DEBUG]	UpScroll
+[14:23:17][DEBUG]	New Selected button: 8
+[14:23:18][DEBUG]	Key Pressed: o
+[14:23:18][DEBUG]	UpScroll
+[14:23:18][DEBUG]	New Selected button: 7
+[14:23:18][DEBUG]	Key Pressed: l
+[14:23:18][DEBUG]	DownScroll
+[14:23:18][DEBUG]	New Selected button: 8
+[14:23:18][DEBUG]	Key Pressed: l
+[14:23:18][DEBUG]	DownScroll
+[14:23:18][DEBUG]	New Selected button: 9
+[14:23:19][DEBUG]	Key Pressed: l
+[14:23:19][DEBUG]	DownScroll
+[14:23:19][DEBUG]	New Selected button: 10
+[14:23:19][DEBUG]	Key Pressed: o
+[14:23:19][DEBUG]	UpScroll
+[14:23:19][DEBUG]	New Selected button: 9
+[14:23:19][DEBUG]	Key Pressed: o
+[14:23:19][DEBUG]	UpScroll
+[14:23:19][DEBUG]	New Selected button: 8
+[14:23:20][DEBUG]	Key Pressed: l
+[14:23:20][DEBUG]	DownScroll
+[14:23:20][DEBUG]	New Selected button: 9
+[14:23:20][DEBUG]	UpScroll
+[14:23:20][DEBUG]	New Selected button: 8
+[14:23:20][DEBUG]	Key Pressed: o
+[14:23:20][DEBUG]	UpScroll
+[14:23:20][DEBUG]	New Selected button: 7
+[14:23:20][DEBUG]	Key Pressed: l
+[14:23:20][DEBUG]	DownScroll
+[14:23:20][DEBUG]	New Selected button: 8
+[14:23:20][DEBUG]	Key Pressed: o
+[14:23:20][DEBUG]	UpScroll
+[14:23:20][DEBUG]	New Selected button: 7
+[14:23:21][DEBUG]	Key Pressed: l
+[14:23:21][DEBUG]	DownScroll
+[14:23:21][DEBUG]	New Selected button: 8
+[14:23:21][DEBUG]	Key Pressed: l
+[14:23:21][DEBUG]	DownScroll
+[14:23:21][DEBUG]	New Selected button: 9
+[14:23:21][DEBUG]	Key Pressed: l
+[14:23:21][DEBUG]	DownScroll
+[14:23:21][DEBUG]	New Selected button: 10
+[14:23:21][DEBUG]	Key Pressed: o
+[14:23:21][DEBUG]	UpScroll
+[14:23:21][DEBUG]	New Selected button: 9
+[14:23:22][DEBUG]	Key Pressed: o
+[14:23:22][DEBUG]	UpScroll
+[14:23:22][DEBUG]	New Selected button: 8
+[14:23:22][DEBUG]	Key Pressed: o
+[14:23:22][DEBUG]	UpScroll
+[14:23:22][DEBUG]	New Selected button: 7
+[14:23:22][DEBUG]	Key Pressed: o
+[14:23:22][DEBUG]	UpScroll
+[14:23:22][DEBUG]	New Selected button: 6
+[14:23:22][DEBUG]	Key Pressed: o
+[14:23:22][DEBUG]	UpScroll
+[14:23:22][DEBUG]	New Selected button: 5
+[14:23:23][DEBUG]	Key Pressed: o
+[14:23:23][DEBUG]	UpScroll
+[14:23:23][DEBUG]	New Selected button: 4
+[14:23:23][DEBUG]	UpScroll
+[14:23:23][DEBUG]	New Selected button: 3
+[14:23:23][DEBUG]	Key Pressed: o
+[14:23:23][DEBUG]	UpScroll
+[14:23:23][DEBUG]	New Selected button: 2
+[14:23:23][DEBUG]	Key Pressed: o
+[14:23:23][DEBUG]	UpScroll
+[14:23:23][DEBUG]	New Selected button: 1
+[14:23:23][DEBUG]	Key Pressed: l
+[14:23:23][DEBUG]	DownScroll
+[14:23:23][DEBUG]	New Selected button: 2
+[14:23:23][DEBUG]	DownScroll
+[14:23:23][DEBUG]	New Selected button: 3
+[14:23:23][DEBUG]	Key Pressed: l
+[14:23:23][DEBUG]	DownScroll
+[14:23:23][DEBUG]	New Selected button: 4
+[14:23:24][DEBUG]	Key Pressed: l
+[14:23:24][DEBUG]	DownScroll
+[14:23:24][DEBUG]	New Selected button: 5
+[14:23:24][DEBUG]	Key Pressed: l
+[14:23:24][DEBUG]	DownScroll
+[14:23:24][DEBUG]	New Selected button: 6
+[14:23:25][DEBUG]	Key Pressed: l
+[14:23:25][DEBUG]	DownScroll
+[14:23:25][DEBUG]	New Selected button: 7
+[14:23:25][DEBUG]	Key Pressed: l
+[14:23:25][DEBUG]	DownScroll
+[14:23:25][DEBUG]	New Selected button: 8
