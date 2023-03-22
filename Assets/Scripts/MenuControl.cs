@@ -42,8 +42,15 @@ public class MenuControl : MonoBehaviour
             nButton.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<TextMeshPro>().text = "Button " + (i+1);
             nButton.transform.GetChild(2).gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
             nButton.transform.GetChild(2).gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
-
             buttons.Add(nButton);
+        }
+
+        // Add listeners for each button.
+        int x = 0;
+        foreach (GameObject btn in buttons) {
+          int j = x;
+          btn.GetComponent<Interactable>().OnClick.AddListener(() => { ButtonClicked(j); });
+          x++;
         }
 
         scroll.SetActive(true);
@@ -79,6 +86,10 @@ public class MenuControl : MonoBehaviour
         } else if (Input.GetKeyDown(KeyCode.L))  {
             DownScroll(speed);
         }
+    }
+
+    void Test() {
+      Debug.Log("Clicked.");
     }
 
     void DownScroll(int speed) {
@@ -135,7 +146,8 @@ public class MenuControl : MonoBehaviour
       btn.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<TextMeshPro>().fontStyle = (FontStyles) FontStyle.Normal;
       btn.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<RectTransform>().localPosition = new Vector3(0, (float) -0.00199, 0);
     }
-    void ButtonClicked(int buttonNumber){
+    public void ButtonClicked(int buttonNumber){
       Globals.logger.writeDebug("Button " + buttonNumber + " got clicked!");
+      Debug.Log("Button " + buttonNumber + " got clicked!");
     }
 }
