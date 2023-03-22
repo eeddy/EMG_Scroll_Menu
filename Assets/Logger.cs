@@ -31,20 +31,20 @@ public class Logger
 
   public void writeDebug(string txt) {
     var todayDate = DateTime.Now;
-    Debug.Log(todayDate.ToString("[HH:mm:ss]") + "[DEBUG]\t" + txt);
+    Debug.Log(todayDate.ToString("[HH:mm:ss.ffff]") + "[DEBUG]\t" + txt);
     // Add some text to file
     using (StreamWriter fs = File.AppendText(fileName))
     {
-        fs.WriteLine(todayDate.ToString("[HH:mm:ss]") + "[DEBUG]\t" + txt);
+        fs.WriteLine(todayDate.ToString("[HH:mm:ss.ffff]") + "[DEBUG]\t" + txt);
     }
   }
   public void writeError(string txt) {
     var todayDate = DateTime.Now;
-    Debug.Log(todayDate.ToString("[HH:mm:ss]") + "[ERROR]\t" + txt);
+    Debug.Log(todayDate.ToString("[HH:mm:ss.ffff]") + "[ERROR]\t" + txt);
     // Add some text to file
     using (StreamWriter fs = File.AppendText(fileName))
     {
-        fs.WriteLine(todayDate.ToString("[HH:mm:ss]") + "[ERROR]\t" + txt);
+        fs.WriteLine(todayDate.ToString("[HH:mm:ss.ffff]") + "[ERROR]\t" + txt);
     }
   }
 

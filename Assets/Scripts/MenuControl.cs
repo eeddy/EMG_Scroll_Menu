@@ -20,7 +20,6 @@ public class MenuControl : MonoBehaviour
     private string control = "";
     private double debounceTime;
     private float speed;
-    private int count = 0;
     private bool toggleState = true;
     private int selectedButton;
     private List<GameObject> buttons;
@@ -65,28 +64,20 @@ public class MenuControl : MonoBehaviour
 
     void Update()
     {
-      if (Input.GetKeyDown(KeyCode.O) || Input.GetKeyDown(KeyCode.L)) {
-        Globals.logger.writeDebug("Key Pressed: " + Input.inputString);
+      UpdateMenu();
+      if (Input.GetKeyDown(KeyCode.O)) {
+        UpScroll(1);
+      } else if (Input.GetKeyDown(KeyCode.L))  {
+        DownScroll(1);
+      } else if (Input.GetKeyDown(KeyCode.P))  {
+        ButtonClicked(selectedButton - 1);
       }
-      FixedUpdate();
     }
 
     void UpdateMenu()
     {
         gc.UpdateCollection();
         so.UpdateContent();
-    }
-
-    void FixedUpdate()
-    {
-        UpdateMenu();
-        int speed = 1;
-
-        if (Input.GetKeyDown(KeyCode.O)) {
-            UpScroll(speed);
-        } else if (Input.GetKeyDown(KeyCode.L))  {
-            DownScroll(speed);
-        }
     }
 
     void Test() {
