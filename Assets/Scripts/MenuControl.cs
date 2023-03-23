@@ -12,7 +12,7 @@ using UnityEngine;
 public class MenuControl : MonoBehaviour
 {
     private int numButtons = 10;
-
+    private int count = 0;
     public GameObject grid, scroll, button;
     private GridObjectCollection gc;
     private ScrollingObjectCollection so;
@@ -23,7 +23,9 @@ public class MenuControl : MonoBehaviour
     private bool toggleState = true;
     private int selectedButton;
     private List<GameObject> buttons;
-
+    private int currentButton;
+    private System.Random rand = new System.Random(0);
+    public Material baseMaterial;
 
     void Awake()
     {
@@ -54,6 +56,8 @@ public class MenuControl : MonoBehaviour
         }
 
         scroll.SetActive(true);
+        
+        RandomButtonHighlight();
     }
 
     void Start() {
@@ -70,7 +74,10 @@ public class MenuControl : MonoBehaviour
       } else if (Input.GetKeyDown(KeyCode.L))  {
         DownScroll(1);
       } else if (Input.GetKeyDown(KeyCode.P))  {
-        ButtonClicked(selectedButton - 1);
+        if(count < 20){
+          ButtonClicked(selectedButton - 1);
+        }
+        
       }
     }
 
@@ -141,5 +148,27 @@ public class MenuControl : MonoBehaviour
     public void ButtonClicked(int buttonNumber){
       Globals.logger.writeDebug("Button " + buttonNumber + " got clicked!");
       Debug.Log("Button " + buttonNumber + " got clicked!");
+      if(currentButton == buttonNumber){
+        count = count + 1;
+        RandomButtonHighlight();
+      }else{
+        Debug.Log("Misclick");
+      }
+    }
+
+    public void RandomButtonHighlight(){
+      
+      Material a = new Material(baseMaterial);
+      a.SetInt("_Iridescence", 1);
+      a.SetInt("_EnvironmentColoring", 0);
+      buttons[currentButton].transform.GetChild(2).gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = a;
+      
+      currentButton = rand.Next(0,9);
+      Material b = new Material(baseMaterial);
+      b.SetInt("_Iridescence", 0);
+      b.SetInt("_EnvironmentColoring", 1);
+      b.SetColor("_EnvironmentColorZ", Color.red);
+      buttons[currentButton].transform.GetChild(2).gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = b;
+
     }
 }

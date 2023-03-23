@@ -155,6 +155,7 @@ MonoBehaviour:
   grid: {fileID: 718190677}
   scroll: {fileID: 1043818766}
   button: {fileID: 3126786010669830190}
+  baseMaterial: {fileID: 2100000, guid: ec72a3a105768f746b556a8dfdae61a8, type: 2}
 --- !u!4 &83336464
 Transform:
   m_ObjectHideFlags: 0
