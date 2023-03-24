@@ -152,6 +152,7 @@ public class MenuControl : MonoBehaviour
         count = count + 1;
         RandomButtonHighlight();
       }else{
+        Globals.logger.writeDebug("Misclick");
         Debug.Log("Misclick");
       }
     }
