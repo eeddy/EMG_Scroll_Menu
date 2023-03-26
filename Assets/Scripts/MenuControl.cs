@@ -11,7 +11,11 @@ using UnityEngine;
 
 public class MenuControl : MonoBehaviour
 {
+    // Setup
     private int numButtons = 10;
+    private int numTargets = 10;
+    private int controlScheme = 1; // 1, 2, or 3
+
     private int count = 0;
     public GameObject grid, scroll, button;
     private GridObjectCollection gc;
@@ -26,6 +30,8 @@ public class MenuControl : MonoBehaviour
     private int currentButton;
     private System.Random rand = new System.Random(0);
     public Material baseMaterial;
+    public TextMeshPro label;
+    private string activeButtons = "";
 
     void Awake()
     {
@@ -61,23 +67,36 @@ public class MenuControl : MonoBehaviour
     }
 
     void Start() {
-        Globals.logger.writeDebug("Menu Control Started!");
+        Globals.logger.writeDebug("Menu Control Started" + ",Control Scheme: " + controlScheme + ",Num Buttons: " + numButtons);
         selectedButton = 3;
-
     }
 
     void Update()
     {
-      UpdateMenu();
-      if (Input.GetKeyDown(KeyCode.O)) {
-        UpScroll(1);
-      } else if (Input.GetKeyDown(KeyCode.L))  {
-        DownScroll(1);
-      } else if (Input.GetKeyDown(KeyCode.P))  {
-        if(count < 20){
-          ButtonClicked(selectedButton - 1);
+      if(Time.timeSinceLevelLoad < 3) {
+        if(Time.timeSinceLevelLoad < 1) {
+          label.text = "Starting in... 3";
+        } else if (Time.timeSinceLevelLoad < 2) {
+          label.text = "Starting in... 2";
+        } else {
+          label.text = "Starting in... 1";
         }
-        
+      } else if(count == numTargets) {
+        label.text = "Done";
+        scroll.SetActive(false);
+      } else {
+        UpdateMenu();
+        if (Input.GetKeyDown(KeyCode.O)) {
+          UpScroll(1);
+        } else if (Input.GetKeyDown(KeyCode.L))  {
+          DownScroll(1);
+        } else if (Input.GetKeyDown(KeyCode.P))  {
+          if(count < 20){
+            ButtonClicked(selectedButton - 1);
+          }   
+        }
+        label.text = "Button " + (currentButton + 1); 
+        Log();
       }
     }
 
@@ -87,44 +106,27 @@ public class MenuControl : MonoBehaviour
         so.UpdateContent();
     }
 
-    void Test() {
-      Debug.Log("Clicked.");
-    }
-
     void DownScroll(int speed) {
-        Globals.logger.writeDebug("DownScroll");
-
         unselect(buttons[selectedButton - 1]);
-
         if (selectedButton < buttons.Count) {
           selectedButton += 1;
         }
         if (selectedButton > 3) {
           so.MoveByTiers(Mathf.RoundToInt(1 * speed));
         }
-
         select(buttons[selectedButton - 1]);
-
-        Globals.logger.writeDebug("New Selected button: " + selectedButton);
         UpdateMenu();
     }
 
     void UpScroll(int speed) {
-        Globals.logger.writeDebug("UpScroll");
-
         unselect(buttons[selectedButton - 1]);
-
         if (selectedButton > 1) {
           selectedButton -= 1;
         }
         if (selectedButton < buttons.Count - 2) {
           so.MoveByTiers(Mathf.RoundToInt(-1 * speed));
         }
-
         select(buttons[selectedButton - 1]);
-
-
-        Globals.logger.writeDebug("New Selected button: " + selectedButton);
         UpdateMenu();
     }
     void select(GameObject btn) {
@@ -145,15 +147,11 @@ public class MenuControl : MonoBehaviour
       btn.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<TextMeshPro>().fontStyle = (FontStyles) FontStyle.Normal;
       btn.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<RectTransform>().localPosition = new Vector3(0, (float) -0.00199, 0);
     }
-    public void ButtonClicked(int buttonNumber){
-      Globals.logger.writeDebug("Button " + buttonNumber + " got clicked!");
-      Debug.Log("Button " + buttonNumber + " got clicked!");
+    void ButtonClicked(int buttonNumber){
+      // Globals.logger.writeDebug("Click: " + buttonNumber);
       if(currentButton == buttonNumber){
         count = count + 1;
         RandomButtonHighlight();
-      }else{
-        Globals.logger.writeDebug("Misclick");
-        Debug.Log("Misclick");
       }
     }
 
@@ -170,6 +168,19 @@ public class MenuControl : MonoBehaviour
       b.SetInt("_EnvironmentColoring", 1);
       b.SetColor("_EnvironmentColorZ", Color.red);
       buttons[currentButton].transform.GetChild(2).gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = b;
+    }
 
+    public void GetActiveButtons() {
+      string activeButtonsTemp = "";
+      for(int i=0; i<buttons.Count; i++) {
+        if(buttons[i].transform.GetChild(3).gameObject.transform.GetChild(0).gameObject.activeSelf) {
+          activeButtonsTemp += i;
+        }
+      }
+      activeButtons = activeButtonsTemp;
+    }
+
+    void Log() {
+      Globals.logger.writeDebug("Selected Button: " + selectedButton + ",Current Button: " + currentButton + ",Active Buttons:" + activeButtons);
     }
 }
