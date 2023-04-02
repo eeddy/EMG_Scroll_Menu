@@ -7,20 +7,19 @@ using Microsoft.MixedReality.Toolkit.Utilities;
 using UnityEngine.UI;
 using TMPro;
 using static Globals;
-using UnityEngine;
+using Microsoft.MixedReality.Toolkit.Input;
 
 public class MenuControl : MonoBehaviour
 {
     // Setup
-    private int numButtons = 10;
+    private int numButtons = 0;
     private int numTargets = 10;
-    private int controlScheme = 1; // 1, 2, or 3
+    private int controlScheme = -1; // 1, 2, or 3
 
     private int count = 0;
     public GameObject grid, scroll, button;
-    private GridObjectCollection gc;
-    private ScrollingObjectCollection so;
     private EMGReader emgReader;
+    private ScrollingObjectCollection so;
     private string control = "";
     private double debounceTime;
     private float speed;
@@ -32,78 +31,109 @@ public class MenuControl : MonoBehaviour
     public Material baseMaterial;
     public TextMeshPro label;
     private string activeButtons = "";
+    public GameObject mainMenu;
+    private float startTime = 0;
 
     void Awake()
     {
-        gc = FindObjectOfType<GridObjectCollection>();
-        so = FindObjectOfType<ScrollingObjectCollection>();
+      buttons = new List<GameObject>();
+      selectedButton = 3;
+  }
 
-        buttons = new List<GameObject>();
-
-        scroll.SetActive(false);
-
-        for(int i=0; i<numButtons; i++) {
-            var nButton = Instantiate(button, grid.transform);
-            nButton.SetActive(true);
-            nButton.name = "Button_" + (i+1);
-            nButton.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<TextMeshPro>().text = "Button " + (i+1);
-            nButton.transform.GetChild(2).gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
-            nButton.transform.GetChild(2).gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
-
-            buttons.Add(nButton);
-        }
-
-        // Add listeners for each button.
-        int x = 0;
-        foreach (GameObject btn in buttons) {
-          int j = x;
-          btn.GetComponent<Interactable>().OnClick.AddListener(() => { ButtonClicked(j); });
-          x++;
-        }
-
-        scroll.SetActive(true);
-        
-        RandomButtonHighlight();
-    }
-
-    void Start() {
-        Globals.logger.writeDebug("Menu Control Started" + ",Control Scheme: " + controlScheme + ",Num Buttons: " + numButtons);
-        selectedButton = 3;
+    void UpdateMenu()
+    {
+      FindObjectOfType<GridObjectCollection>().UpdateCollection();
+      FindObjectOfType<ScrollingObjectCollection>().UpdateContent();
     }
 
     void Update()
     {
-      if(Time.timeSinceLevelLoad < 3) {
-        if(Time.timeSinceLevelLoad < 1) {
-          label.text = "Starting in... 3";
-        } else if (Time.timeSinceLevelLoad < 2) {
-          label.text = "Starting in... 2";
+      if(controlScheme != -1 && numButtons != 0) {
+        if(startTime == 0) {
+          startTime = Time.time;
+        }
+        mainMenu.SetActive(false);
+        if(Time.time - startTime < 3) {
+          if(Time.time - startTime < 1) {
+            label.text = "Starting in... 3";
+          } else if (Time.time - startTime < 2) {
+            label.text = "Starting in... 2";
+          } else {
+            label.text = "Starting in... 1";
+          }
+        } else if(count == numTargets) {
+          label.text = "Done";
+          Destroy(FindObjectOfType<GridObjectCollection>().gameObject);
+          //Reset
+          Reset();
         } else {
-          label.text = "Starting in... 1";
-        }
-      } else if(count == numTargets) {
-        label.text = "Done";
-        scroll.SetActive(false);
+          if(buttons.Count == 0) {
+            so = FindObjectOfType<ScrollingObjectCollection>();
+            Globals.logger.writeDebug("Menu Control Started" + ",Control Scheme: " + controlScheme + ",Num Buttons: " + numButtons);
+            ButtonSetup();
+            RandomButtonHighlight();
+            if(controlScheme == 1 && buttons.Count > 0) {
+              select(buttons[selectedButton - 1]);
+            } else {
+              selectedButton = 0;
+              so.MoveByTiers(Mathf.RoundToInt(-10));
+            }
+          }
+          UpdateMenu();
+          if (Input.GetKeyDown(KeyCode.O)) {
+            UpScroll(1);
+          } else if (Input.GetKeyDown(KeyCode.L))  {
+            DownScroll(1);
+          } else if (Input.GetKeyDown(KeyCode.P))  {
+            if(count < 20){
+              ButtonClicked(selectedButton - 1);
+            }   
+          }
+          label.text = "Button " + (currentButton + 1); 
+          Log();
+        } 
       } else {
-        UpdateMenu();
-        if (Input.GetKeyDown(KeyCode.O)) {
-          UpScroll(1);
-        } else if (Input.GetKeyDown(KeyCode.L))  {
-          DownScroll(1);
-        } else if (Input.GetKeyDown(KeyCode.P))  {
-          if(count < 20){
-            ButtonClicked(selectedButton - 1);
-          }   
-        }
-        label.text = "Button " + (currentButton + 1); 
-        Log();
+          mainMenu.SetActive(true);
       }
     }
 
-    void UpdateMenu()
+    void Reset() 
     {
-        gc.UpdateCollection();
-        so.UpdateContent();
+      numButtons = 0;
+      controlScheme = -1;
+      startTime = 0;
+      selectedButton = 3;
+      buttons = new List<GameObject>();
+      count=0;
+      activeButtons="";
+    }
+
+    void ButtonSetup() 
+    {
+      GameObject gridNew = Instantiate(grid, so.transform.GetChild(0));
+      foreach (Transform child in grid.transform) {
+        GameObject.Destroy(child.gameObject);
+      }
+      for(int i=0; i<numButtons; i++) {
+        var nButton = Instantiate(button, gridNew.transform);
+        nButton.SetActive(true);
+        nButton.name = "Button_" + (i+1);
+        nButton.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<TextMeshPro>().text = "Button " + (i+1);
+        nButton.transform.GetChild(2).gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        nButton.transform.GetChild(2).gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+
+        buttons.Add(nButton);
+      }
+
+      // Add listeners for each button.
+      int x = 0;
+      foreach (GameObject btn in buttons) {
+        int j = x;
+        btn.GetComponent<Interactable>().OnClick.AddListener(() => { ButtonClicked(j); });
+        x++;
+      }
+
+      UpdateMenu();
     }
 
     void DownScroll(int speed) {
@@ -136,7 +166,7 @@ public class MenuControl : MonoBehaviour
 
       // Change Text
       btn.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<TextMeshPro>().fontStyle = (FontStyles) FontStyle.Bold;
-      btn.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<RectTransform>().localPosition = new Vector3((float) -0.0025, 0, 0);
+      // btn.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<RectTransform>().localPosition = new Vector3((float) 0, 0, 0);
     }
     void unselect(GameObject btn) {
       // Remove Arrows
@@ -145,10 +175,10 @@ public class MenuControl : MonoBehaviour
 
       // Change Text
       btn.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<TextMeshPro>().fontStyle = (FontStyles) FontStyle.Normal;
-      btn.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<RectTransform>().localPosition = new Vector3(0, (float) -0.00199, 0);
+      // btn.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
     }
     void ButtonClicked(int buttonNumber){
-      // Globals.logger.writeDebug("Click: " + buttonNumber);
+      Globals.logger.writeDebug("Button Clicked: " + buttonNumber);
       if(currentButton == buttonNumber){
         count = count + 1;
         RandomButtonHighlight();
@@ -157,17 +187,21 @@ public class MenuControl : MonoBehaviour
 
     public void RandomButtonHighlight(){
       
-      Material a = new Material(baseMaterial);
-      a.SetInt("_Iridescence", 1);
-      a.SetInt("_EnvironmentColoring", 0);
-      buttons[currentButton].transform.GetChild(2).gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = a;
+      if (currentButton < buttons.Count) {
+        Material a = new Material(baseMaterial);
+        a.SetInt("_Iridescence", 1);
+        a.SetInt("_EnvironmentColoring", 0);
+        buttons[currentButton].transform.GetChild(2).gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = a;
+      }
       
-      currentButton = rand.Next(0,9);
-      Material b = new Material(baseMaterial);
-      b.SetInt("_Iridescence", 0);
-      b.SetInt("_EnvironmentColoring", 1);
-      b.SetColor("_EnvironmentColorZ", Color.red);
-      buttons[currentButton].transform.GetChild(2).gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = b;
+      currentButton = rand.Next(0,numButtons);
+      if (currentButton < buttons.Count) {
+        Material b = new Material(baseMaterial);
+        b.SetInt("_Iridescence", 0);
+        b.SetInt("_EnvironmentColoring", 1);
+        b.SetColor("_EnvironmentColorZ", Color.red);
+        buttons[currentButton].transform.GetChild(2).gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = b;
+      }
     }
 
     public void GetActiveButtons() {
@@ -183,4 +217,18 @@ public class MenuControl : MonoBehaviour
     void Log() {
       Globals.logger.writeDebug("Selected Button: " + selectedButton + ",Current Button: " + currentButton + ",Active Buttons:" + activeButtons);
     }
+
+
+    // Button Controllers 
+    public void Control1() {controlScheme=1;}
+
+    public void Control2() {controlScheme=2;}
+
+    public void Control3() {controlScheme=3;}
+
+    public void FiveButtons() {numButtons=5;}
+
+    public void TenButtons() {numButtons=10;}
+
+    public void TwentyButtons() {numButtons=20;}
 }
