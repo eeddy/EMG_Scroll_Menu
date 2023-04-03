@@ -208,7 +208,7 @@ public class MenuControl : MonoBehaviour
       string activeButtonsTemp = "";
       for(int i=0; i<buttons.Count; i++) {
         if(buttons[i].transform.GetChild(3).gameObject.transform.GetChild(0).gameObject.activeSelf) {
-          activeButtonsTemp += i;
+          activeButtonsTemp += i + ",";
         }
       }
       activeButtons = activeButtonsTemp;
