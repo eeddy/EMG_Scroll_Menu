@@ -16,9 +16,9 @@ public class Logger
   public Logger()
   {
     var todayDate = DateTime.Now;
-		string strToday = todayDate.ToString("[MM-dd-yyyy][HH;mm;ss]");
+		string strToday = todayDate.ToString("[MM-dd-yyyy];[HH;mm;ss]");
     // "Assets/Data/Multiple_choice_grammar.txt"
-    testFileName = "Assets/logs/" + strToday + ".txt";
+    testFileName = "Assets/logs/" + strToday.Replace("[", "").Replace("]", "") + ".txt";
     Directory.CreateDirectory(Application.streamingAssetsPath + "/logs/");
     buildFileName = Application.streamingAssetsPath + "/logs/" + strToday + ".txt";
     if (File.Exists(testFileName))

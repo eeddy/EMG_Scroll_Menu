@@ -87,17 +87,17 @@ public class MenuControl : MonoBehaviour
           } else if (Input.GetKeyDown(KeyCode.P))  {
             if(count < 20){
               ButtonClicked(selectedButton - 1);
-            }   
+            }
           }
-          label.text = "Button " + (currentButton + 1); 
+          label.text = "Button " + (currentButton + 1);
           Log();
-        } 
+        }
       } else {
           mainMenu.SetActive(true);
       }
     }
 
-    void Reset() 
+    void Reset()
     {
       numButtons = 0;
       controlScheme = -1;
@@ -108,7 +108,7 @@ public class MenuControl : MonoBehaviour
       activeButtons="";
     }
 
-    void ButtonSetup() 
+    void ButtonSetup()
     {
       GameObject gridNew = Instantiate(grid, so.transform.GetChild(0));
       foreach (Transform child in grid.transform) {
@@ -178,7 +178,8 @@ public class MenuControl : MonoBehaviour
       // btn.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
     }
     void ButtonClicked(int buttonNumber){
-      Globals.logger.writeDebug("Button Clicked: " + buttonNumber);
+      int btn_num = buttonNumber + 1;
+      Globals.logger.writeDebug("Button Clicked: " + btn_num);
       if(currentButton == buttonNumber){
         count = count + 1;
         RandomButtonHighlight();
@@ -186,14 +187,14 @@ public class MenuControl : MonoBehaviour
     }
 
     public void RandomButtonHighlight(){
-      
+
       if (currentButton < buttons.Count) {
         Material a = new Material(baseMaterial);
         a.SetInt("_Iridescence", 1);
         a.SetInt("_EnvironmentColoring", 0);
         buttons[currentButton].transform.GetChild(2).gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = a;
       }
-      
+
       currentButton = rand.Next(0,numButtons);
       if (currentButton < buttons.Count) {
         Material b = new Material(baseMaterial);
@@ -215,11 +216,13 @@ public class MenuControl : MonoBehaviour
     }
 
     void Log() {
-      Globals.logger.writeDebug("Selected Button: " + selectedButton + ",Current Button: " + currentButton + ",Active Buttons:" + activeButtons);
+      int s_btn = selectedButton-1;
+      int c_btn = currentButton+1;
+      Globals.logger.writeDebug("Selected Button: " + selectedButton + ",,Current Button: " + c_btn + ",,Active Buttons:" + activeButtons);
     }
 
 
-    // Button Controllers 
+    // Button Controllers
     public void Control1() {controlScheme=1;}
 
     public void Control2() {controlScheme=2;}
