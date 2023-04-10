@@ -86,8 +86,8 @@ class Menu:
         o_classifier.add_rejection(0.97)
 
         # Step 5: Create online EMG classifier and start classifying.
-        # IP='192.168.2.51'
-        IP = '127.0.0.1'
+        IP='192.168.2.51'
+        # IP = '127.0.0.1'
         PORT=8090
         self.classifier = OnlineEMGClassifier(o_classifier, WINDOW_SIZE, WINDOW_INCREMENT, self.odh, feature_list, ip=IP, port=PORT, tcp=True)
         self.classifier.run(block=True)

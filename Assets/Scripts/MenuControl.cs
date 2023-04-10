@@ -8,6 +8,7 @@ using UnityEngine.UI;
 using TMPro;
 using static Globals;
 using Microsoft.MixedReality.Toolkit.Input;
+using System.IO;
 
 public class MenuControl : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class MenuControl : MonoBehaviour
     private int controlScheme = -1; // 1, 2, or 3
 
     private int count = 0;
+    private string fileName = DateTime.Now.ToString("hh.mm.ss.ffffff") + ".txt";
     public GameObject grid, scroll, button;
     private MyoReaderClient emgReader;
     private ScrollingObjectCollection so;
@@ -70,9 +72,10 @@ public class MenuControl : MonoBehaviour
         } else {
           if(buttons.Count == 0) {
             so = FindObjectOfType<ScrollingObjectCollection>();
-            #if UNITY_EDITOR
-              Globals.logger.writeDebug("Menu Control Started" + ",Control Scheme: " + controlScheme + ",Num Buttons: " + numButtons);
-            #endif
+            WriteLineFileAppendMode("Menu Control Started" + ",Control Scheme: " + controlScheme + ",Num Buttons: " + numButtons);
+            // #if UNITY_EDITOR
+            //   Globals.logger.writeDebug("Menu Control Started" + ",Control Scheme: " + controlScheme + ",Num Buttons: " + numButtons);
+            // #endif
             ButtonSetup();
             RandomButtonHighlight();
             if(controlScheme == 1 && buttons.Count > 0) {
@@ -205,9 +208,10 @@ public class MenuControl : MonoBehaviour
     }
     void ButtonClicked(int buttonNumber){
       int btn_num = buttonNumber + 1;
-      #if UNITY_EDITOR
-        Globals.logger.writeDebug("Button Clicked: " + btn_num);
-      #endif
+      WriteLineFileAppendMode("Button Clicked: " + btn_num);
+      // #if UNITY_EDITOR
+      //   Globals.logger.writeDebug("Button Clicked: " + btn_num);
+      // #endif
       if(currentButton == buttonNumber){
         count = count + 1;
         RandomButtonHighlight();
@@ -229,6 +233,7 @@ public class MenuControl : MonoBehaviour
         b.SetInt("_Iridescence", 0);
         b.SetInt("_EnvironmentColoring", 1);
         b.SetColor("_EnvironmentColorZ", Color.red);
+        b.SetColor("_Color", Color.red);
         buttons[currentButton].transform.GetChild(2).gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = b;
       }
     }
@@ -246,9 +251,10 @@ public class MenuControl : MonoBehaviour
     void Log() {
       int s_btn = selectedButton-1;
       int c_btn = currentButton+1;
-      #if UNITY_EDITOR
-        Globals.logger.writeDebug("Selected Button: " + selectedButton + ",,Current Button: " + c_btn + ",,Active Buttons:" + activeButtons);
-      #endif
+      WriteLineFileAppendMode("Selected Button: " + selectedButton + ",,Current Button: " + c_btn + ",,Active Buttons:" + activeButtons);
+      // #if UNITY_EDITOR
+      //   Globals.logger.writeDebug("Selected Button: " + selectedButton + ",,Current Button: " + c_btn + ",,Active Buttons:" + activeButtons);
+      // #endif
     }
 
 
@@ -264,4 +270,17 @@ public class MenuControl : MonoBehaviour
     public void TenButtons() {numButtons=10;}
 
     public void TwentyButtons() {numButtons=20;}
+
+    private void WriteLineFileAppendMode(string text) {
+        string filePath = Path.Combine(Application.persistentDataPath, fileName);
+        Debug.Log(Application.persistentDataPath);
+        Debug.Log(filePath);
+        using (var fileStream = new FileStream(filePath, FileMode.Append))
+        {
+            using (var streamWriter = new StreamWriter(fileStream))
+            {
+                streamWriter.WriteLine(text);
+            }
+        }
+    }
 }
