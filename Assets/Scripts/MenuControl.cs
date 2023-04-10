@@ -18,7 +18,7 @@ public class MenuControl : MonoBehaviour
 
     private int count = 0;
     public GameObject grid, scroll, button;
-    private EMGReader emgReader;
+    private MyoReaderClient emgReader;
     private ScrollingObjectCollection so;
     private string control = "";
     private double debounceTime;
@@ -38,6 +38,7 @@ public class MenuControl : MonoBehaviour
     {
       buttons = new List<GameObject>();
       selectedButton = 3;
+      emgReader = FindObjectOfType<MyoReaderClient>();
   }
 
     void UpdateMenu()
@@ -69,7 +70,9 @@ public class MenuControl : MonoBehaviour
         } else {
           if(buttons.Count == 0) {
             so = FindObjectOfType<ScrollingObjectCollection>();
-            Globals.logger.writeDebug("Menu Control Started" + ",Control Scheme: " + controlScheme + ",Num Buttons: " + numButtons);
+            #if UNITY_EDITOR
+              Globals.logger.writeDebug("Menu Control Started" + ",Control Scheme: " + controlScheme + ",Num Buttons: " + numButtons);
+            #endif
             ButtonSetup();
             RandomButtonHighlight();
             if(controlScheme == 1 && buttons.Count > 0) {
@@ -80,15 +83,28 @@ public class MenuControl : MonoBehaviour
             }
           }
           UpdateMenu();
-          if (Input.GetKeyDown(KeyCode.O)) {
-            UpScroll(1);
-          } else if (Input.GetKeyDown(KeyCode.L))  {
-            DownScroll(1);
-          } else if (Input.GetKeyDown(KeyCode.P))  {
-            if(count < 20){
-              ButtonClicked(selectedButton - 1);
-            }
+          int mult = 1;
+          if(emgReader.velocity > 0.9) {
+            mult = 3;
+          } else if(emgReader.velocity > 0.6) {
+            mult = 2;
+          } else {
+            mult = 1;
           }
+          Debug.Log(mult);
+          if (Input.GetKeyDown(KeyCode.O) || (emgReader.control == "3" && emgReader.consecutive == 3)) {
+            UpScroll(mult);
+            emgReader.consecutive = 0;
+            emgReader.velocities = new List<float>();
+          } else if (Input.GetKeyDown(KeyCode.L) || (emgReader.control == "2" && emgReader.consecutive == 3))  {
+            DownScroll(mult);
+            emgReader.consecutive = 0;
+            emgReader.velocities = new List<float>();
+          } else if (Input.GetKeyDown(KeyCode.P) || (emgReader.control == "0" && emgReader.consecutive == 3))  {
+            ButtonClicked(selectedButton - 1);
+            emgReader.consecutive = 0;
+          }
+          emgReader.control = "";
           label.text = "Button " + (currentButton + 1);
           Log();
         }
@@ -136,28 +152,38 @@ public class MenuControl : MonoBehaviour
       UpdateMenu();
     }
 
-    void DownScroll(int speed) {
-        unselect(buttons[selectedButton - 1]);
-        if (selectedButton < buttons.Count) {
-          selectedButton += 1;
-        }
-        if (selectedButton > 3) {
-          so.MoveByTiers(Mathf.RoundToInt(1 * speed));
-        }
-        select(buttons[selectedButton - 1]);
-        UpdateMenu();
+    void DownScroll(int nums) {
+      if(nums == 0) {
+        return;
+      }
+      unselect(buttons[selectedButton - 1]);
+      selectedButton += 1;
+      if (selectedButton > buttons.Count) {
+        selectedButton = buttons.Count;
+      }
+      if (selectedButton > 3) {
+        so.MoveByTiers(Mathf.RoundToInt(1));
+      }
+      select(buttons[selectedButton - 1]);
+      UpdateMenu();
+      DownScroll(nums-=1);
     }
 
-    void UpScroll(int speed) {
-        unselect(buttons[selectedButton - 1]);
-        if (selectedButton > 1) {
-          selectedButton -= 1;
-        }
-        if (selectedButton < buttons.Count - 2) {
-          so.MoveByTiers(Mathf.RoundToInt(-1 * speed));
-        }
-        select(buttons[selectedButton - 1]);
-        UpdateMenu();
+    void UpScroll(int nums) {
+      if(nums == 0) {
+        return;
+      }
+      unselect(buttons[selectedButton - 1]);
+      selectedButton -= 1;
+      if (selectedButton < 1) {
+        selectedButton = 1;
+      }
+      if (selectedButton < buttons.Count - 2) {
+        so.MoveByTiers(Mathf.RoundToInt(-1));
+      }
+      select(buttons[selectedButton - 1]);
+      UpdateMenu();
+      UpScroll(nums-=1);
     }
     void select(GameObject btn) {
       // Add Arrows
@@ -179,7 +205,9 @@ public class MenuControl : MonoBehaviour
     }
     void ButtonClicked(int buttonNumber){
       int btn_num = buttonNumber + 1;
-      Globals.logger.writeDebug("Button Clicked: " + btn_num);
+      #if UNITY_EDITOR
+        Globals.logger.writeDebug("Button Clicked: " + btn_num);
+      #endif
       if(currentButton == buttonNumber){
         count = count + 1;
         RandomButtonHighlight();
@@ -218,7 +246,9 @@ public class MenuControl : MonoBehaviour
     void Log() {
       int s_btn = selectedButton-1;
       int c_btn = currentButton+1;
-      Globals.logger.writeDebug("Selected Button: " + selectedButton + ",,Current Button: " + c_btn + ",,Active Buttons:" + activeButtons);
+      #if UNITY_EDITOR
+        Globals.logger.writeDebug("Selected Button: " + selectedButton + ",,Current Button: " + c_btn + ",,Active Buttons:" + activeButtons);
+      #endif
     }
 
 

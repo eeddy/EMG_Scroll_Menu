@@ -5,4 +5,5 @@ UserSettings/*
 data/*
 classes/*
 Assets/logs/*
-
+Build/*
+Assets/StreamingAssets/*

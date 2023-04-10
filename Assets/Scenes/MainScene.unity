@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d9acc7968244a8886f3af591305bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeProfile: {fileID: 11400000, guid: 31a611a779d3499e8e35f1a2018ca841, type: 2}
+  activeProfile: {fileID: 11400000, guid: 0101bdae0e3694e4fbbffd9a8da8d354, type: 2}
 --- !u!4 &248230216
 Transform:
   m_ObjectHideFlags: 0
@@ -1204,7 +1204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2021411353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1214,11 +1214,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2021411352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc90d0c3ddb943e4e8a93768fa8cd014, type: 3}
+  m_Script: {fileID: 11500000, guid: 26bf0b7cf48d40b46a3648840917de6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IP: 127.0.0.1
-  port: 12346
+  control: Starting!
+  velocity: 0
+  consecutive: 0
+  velocities: []
 --- !u!4 &2021411354
 Transform:
   m_ObjectHideFlags: 0
