@@ -5,7 +5,7 @@ import statistics
 from datetime import datetime
 
 # TODO: Change Log Directory
-LOG_DIRECTORY = "C:\\Users\\jerem\\Desktop\\Results"
+LOG_DIRECTORY = ""
 
 
 def parse_log_directory(log_dir):
