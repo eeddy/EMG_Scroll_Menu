@@ -7,3 +7,10 @@ classes/*
 Assets/logs/*
 Build/*
 Assets/StreamingAssets/*
+.idea/vcs.xml
+.idea/modules.xml
+.idea/misc.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/CS6905_MR_Project.iml
+.idea/.name
